@@ -1,4 +1,6 @@
-﻿namespace SalesTaxProblem
+﻿using System.Collections.Generic;
+
+namespace SalesTaxProblem
 {
     /// <summary>
     /// Kind of Context class as it holds current strategy reference
@@ -12,18 +14,15 @@
         public float BasePrice { get; }
 
         private ITaxStrategy _currentStrategy;
-
-        public void SetTaxStrategy(ITaxStrategy taxStrategy)
-        {
-            _currentStrategy = taxStrategy;
-        }
-
-        public Item(string name, ItemType itemType, bool isImported, float basePrice)
+        
+        public Item(string name, ItemType itemType, bool isImported, float basePrice, ITaxStrategy taxStrategy)
         {
             Name = name;
             Type = itemType;
             IsImported = isImported;
             BasePrice = basePrice;
+
+            _currentStrategy = taxStrategy;
         }
 
         public float GetTax()
