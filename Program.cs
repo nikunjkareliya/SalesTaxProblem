@@ -26,8 +26,9 @@ namespace SalesTaxProblem
             receipt.Add(item);
             item = ItemFactory.CreateItem("Chocolates", ItemType.Food, true, 11.25f);
             receipt.Add(item);
-
-            receipt.Print();
+            
+            Printer printer = new Printer();
+            printer.Print(receipt);
 
             Console.WriteLine();
             Console.WriteLine("----------------------- END ---------------------------");

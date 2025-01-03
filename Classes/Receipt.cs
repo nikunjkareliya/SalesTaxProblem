@@ -9,6 +9,7 @@ namespace SalesTaxProblem
     public class Receipt
     {
         private List<Item> _items;
+        public List<Item> Items => _items;
 
         public Receipt()
         {
@@ -42,18 +43,6 @@ namespace SalesTaxProblem
             }
 
             return totalTax;
-        }
-
-        public void Print()
-        {
-            for (int i = 0; i < _items.Count; i++)
-            {
-                Console.WriteLine($"{i + 1}. {_items[i].Name} | Type: {_items[i].Type} | Is imported? {_items[i].IsImported} | Price with tax: {_items[i].GetPriceWithTax()}");
-            }
-
-            Console.WriteLine();
-            Console.WriteLine($"Tax to be paid: {GetTotalTaxToBePaid()}");
-            Console.WriteLine($"Total: {GetTotalPriceToBePaid()}");
         }
 
     }
